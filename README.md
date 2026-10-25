@@ -2,7 +2,7 @@
 
 A [UE4SS](https://github.com/UE4SS-RE/RE-UE4SS) mod for **Final Fantasy Resonance** that shows **PS5**, **PS4** or **Switch** button icons instead of the Xbox ones.
 
-Useful if the game shows Xbox icons with your PlayStation or Switch controller. It uses the game's own icon sets, swapped in memory, so no game files are modified. It changes the button prompts and the gamepad remapping screen in the options.
+Useful if the game shows Xbox icons with your PlayStation or Switch controller. It uses the game's own icon sets, swapped in memory, so no game files are modified.
 
 Also works with the **demo**.
 
