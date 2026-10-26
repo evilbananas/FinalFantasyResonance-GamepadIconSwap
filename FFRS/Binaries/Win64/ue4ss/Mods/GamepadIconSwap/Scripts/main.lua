@@ -2,11 +2,21 @@
 local ICONS = "PS5"
 
 local function controllerData(name)
-    return StaticFindObject(string.format(
+    local data = StaticFindObject(string.format(
         "/Game/UI/Foundation/Platform/Input/Dev_%s/CommonInput_Gamepad_%s.Default__CommonInput_Gamepad_%s_C", name, name, name))
+    return data and data:IsValid() and data or nil
 end
 
--- Replace the default (Xbox) icon set with the chosen one; controller data is loaded before this subsystem is created
-NotifyOnNewObject("/Script/CommonInput.CommonInputSubsystem", function()
-    controllerData("Windows").InputBrushDataMap = controllerData(ICONS).InputBrushDataMap
+-- The icon sets load at different times in the demo and the full game, so retry until both exist
+local done = false
+LoopAsync(1000, function()
+    ExecuteInGameThread(function()
+        if done then return end
+        local default, wanted = controllerData("Windows"), controllerData(ICONS)
+        if not (default and wanted) then return end
+        default.InputBrushDataMap = wanted.InputBrushDataMap
+        done = true
+        print("[GamepadIconSwap] Swapped gamepad icons to " .. ICONS .. "\n")
+    end)
+    return done
 end)
