@@ -4,7 +4,7 @@ A [UE4SS](https://github.com/UE4SS-RE/RE-UE4SS) mod for **Final Fantasy Resonanc
 
 Useful if the game shows Xbox icons with your PlayStation or Switch controller. It uses the game's own icon sets, swapped in memory, so no game files are modified.
 
-Also works with the **demo**.
+Also works with the **Demo**.
 
 ## Requirements
 - Final Fantasy Resonance or Final Fantasy Resonance Demo
